@@ -1,1 +1,1 @@
-Este proyecto es un trabajo pr·ctico del Curso Intensivo de ProducciÛn Integral de Videojuegos 2008 de la UTN.BA, dictado por el profesor Eduardo RodrÌguez Ortega
+Este proyecto es un trabajo pr√°ctico del Curso Intensivo de Producci√≥n Integral de Videojuegos 2018 de la UTN.BA, dictado por el profesor Eduardo Rodr√≠guez Ortega
