@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Stage.unity
     guid: 1d225c4accb5b4ea195d267fa12e25a6
+  - enabled: 1
+    path: Assets/Escenas/PantallaVictoria.unity
+    guid: af32376765e938d43802dbcc15fc5a5e

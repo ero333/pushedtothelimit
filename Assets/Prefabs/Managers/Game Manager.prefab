@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e982f2e96186964fbc2f156792f5029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantallaMenu: 
-  pantallaVictoria: 
+  pantallaMenu: MenuPrincipal
+  pantallaVictoria: PantallaVictoria
   jugador1: {fileID: 0}
   jugador2: {fileID: 0}
   jugador3: {fileID: 0}

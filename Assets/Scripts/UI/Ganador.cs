@@ -15,6 +15,6 @@ public class Ganador : MonoBehaviour {
     }
 
     void NombreGanador(){
-        texto.text = GameManager.instance.ganador;
+        texto.text = "El ganador es " + GameManager.instance.ganador;
     }
 }
