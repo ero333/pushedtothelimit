@@ -43,4 +43,11 @@ public class PlayerController : MonoBehaviour {
 			rbPlayer.velocity = (transform.up * powerJetpack);
 		
     }
+
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.name == "Agujero Negro")
+			Destroy (gameObject);
+
+	}
+		
 }
