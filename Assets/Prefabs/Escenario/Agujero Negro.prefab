@@ -22,7 +22,10 @@ GameObject:
   - component: {fileID: 198827161817340246}
   - component: {fileID: 199203477992825354}
   - component: {fileID: 58907256576568832}
-  m_Layer: 0
+  - component: {fileID: 114164920804872170}
+  - component: {fileID: 50390394249307098}
+  - component: {fileID: 114310533229195494}
+  m_Layer: 10
   m_Name: Agujero Negro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +42,7 @@ GameObject:
   - component: {fileID: 4715508428551506}
   - component: {fileID: 198746612805310490}
   - component: {fileID: 199439211081039312}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Residuos 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +59,7 @@ GameObject:
   - component: {fileID: 4102344147627546}
   - component: {fileID: 198820335198141180}
   - component: {fileID: 199635551922834908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Centro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +76,7 @@ GameObject:
   - component: {fileID: 4193069135402468}
   - component: {fileID: 198584682894727140}
   - component: {fileID: 199394830233554336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Residuos 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +93,7 @@ GameObject:
   - component: {fileID: 4957892089008558}
   - component: {fileID: 198805179831663744}
   - component: {fileID: 199736215920420994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Borde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +110,7 @@ GameObject:
   - component: {fileID: 4082734105691116}
   - component: {fileID: 198086391349221838}
   - component: {fileID: 199284740617957498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Nebulosa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872820721798646}
   - component: {fileID: 182190030143530194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WindZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +178,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007969115856186}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2.1615963, y: -2.370146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -187,7 +190,7 @@ Transform:
   - {fileID: 4715508428551506}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4715508428551506
 Transform:
   m_ObjectHideFlags: 1
@@ -227,6 +230,26 @@ Transform:
   m_Father: {fileID: 4531522660167846}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50390394249307098
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007969115856186}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 3
 --- !u!58 &58907256576568832
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -236,12 +259,36 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: -0}
   serializedVersion: 2
-  m_Radius: 1.6962055
+  m_Radius: 9.5
+--- !u!114 &114164920804872170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007969115856186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e22d0752b8a376479a39815b0130ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  G: 55.92
+  rb: {fileID: 50390394249307098}
+--- !u!114 &114310533229195494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007969115856186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b2a09e8931b8746b57406d1a0f853c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!182 &182190030143530194
 WindZone:
   m_ObjectHideFlags: 1

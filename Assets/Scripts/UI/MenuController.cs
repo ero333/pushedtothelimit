@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour {
 	public Button btnPlay;
 	public Button btnExit;
+    public string lvlACargar;
 
 	void Start ()
 	{
@@ -26,7 +27,7 @@ public class MenuController : MonoBehaviour {
 
 	private void Play()
 	{
-		SceneManager.LoadScene ("Stage");
+		SceneManager.LoadScene ("lvlACargar");
 	}
 
 	private void Exit()

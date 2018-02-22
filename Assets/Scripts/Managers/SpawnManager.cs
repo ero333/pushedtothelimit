@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour {
     public List<GameObject> planetas;
     [Header("0 = Norte , 1 = Sur , 2 = Este , 3 = Oeste")]
     public List<Transform> spawnpoints;
+    public List<Transform> spawnPlayer; 
     Vector2 posicionAgujeroNegro;
     Vector2 ultimaPosicionN;
     Vector2 ultimaPosicionS;
@@ -21,12 +22,17 @@ public class SpawnManager : MonoBehaviour {
 
     private void Start(){
         SpawnAgujeroNegro();
+        ActivarJugadores();
+        AcomodarJugadores();
         InvokeRepeating("SpawnPlaneta", tiempoEntreSpawns, tiempoEntreSpawns);
         GameManager.instance.rondaEnCurso = true;
     }
 
     private void OnDestroy(){
         GameManager.instance.rondaEnCurso = false;
+        for (int i = 0; i < GameManager.instance.jugadores.Length; i++){
+            Destroy(GameManager.instance.jugadores[i]);
+        }
     }
 
 
@@ -37,6 +43,7 @@ public class SpawnManager : MonoBehaviour {
             Vector3 posicion = new Vector3(x, desplazamientoY - correcionSpawnAgujeroNegro);
             GameObject aN = Instantiate(agujeroNegro,spawnpoints[0].position, spawnpoints[0].rotation);
             aN.transform.position = posicion;
+			aN.transform.Rotate (-90, 0, 0);
             ultimaPosicionN = posicion;
         }
         if (lateral >= 26 && lateral <= 50){
@@ -44,6 +51,7 @@ public class SpawnManager : MonoBehaviour {
             Vector3 posicion = new Vector3(x, -desplazamientoY + correcionSpawnAgujeroNegro);
             GameObject aN = Instantiate(agujeroNegro, spawnpoints[1].position, spawnpoints[1].rotation);
             aN.transform.position = posicion;
+			aN.transform.Rotate (-90, 0, 0);
             ultimaPosicionS = posicion;
         }
         if (lateral >= 51 && lateral <= 75){
@@ -51,6 +59,7 @@ public class SpawnManager : MonoBehaviour {
             Vector3 posicion = new Vector3(desplazamientoX - correcionSpawnAgujeroNegro, y);
             GameObject aN = Instantiate(agujeroNegro, spawnpoints[2].position, spawnpoints[2].rotation);
             aN.transform.position = posicion;
+			aN.transform.Rotate (-90, 0, 0);
             ultimaPosicionE = posicion;
         }
         if (lateral >= 76 && lateral <= 100){
@@ -58,6 +67,7 @@ public class SpawnManager : MonoBehaviour {
             Vector3 posicion = new Vector3(-desplazamientoX + correcionSpawnAgujeroNegro, y);
             GameObject aN = Instantiate(agujeroNegro, spawnpoints[3].position, spawnpoints[3].rotation);
             aN.transform.position = posicion;
+			aN.transform.Rotate (-90, 0, 0);
             ultimaPosicionO = posicion;
         }
     }
@@ -111,6 +121,28 @@ public class SpawnManager : MonoBehaviour {
             }else{
                 SpawnPlaneta();
             }
+        }
+    }
+
+    public void AcomodarJugadores(){
+        GameManager.instance.jugador1.transform.Translate(spawnPlayer[0].position);
+        GameManager.instance.jugador2.transform.Translate(spawnPlayer[1].position);
+        GameManager.instance.jugador3.transform.Translate(spawnPlayer[2].position);
+        GameManager.instance.jugador4.transform.Translate(spawnPlayer[3].position);
+    }
+
+    public void ActivarJugadores(){
+        if(GameManager.instance.jugador1 == true){
+            GameManager.instance.jugador1.SetActive(true);
+        }
+        if(GameManager.instance.jugador2 == true){
+            GameManager.instance.jugador1.SetActive(true);
+        }
+        if(GameManager.instance.jugador3 == true){
+            GameManager.instance.jugador1.SetActive(true);
+        }
+        if(GameManager.instance.jugador4 == true){
+            GameManager.instance.jugador1.SetActive(true);
         }
     }
 }

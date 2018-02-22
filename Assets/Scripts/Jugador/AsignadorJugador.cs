@@ -24,9 +24,13 @@ public class AsignadorJugador : MonoBehaviour {
             GameManager.instance.jugador3 = gameObject;
             jugador3 = true;
         }
-        else{
+        else if(GameManager.instance.jugador4 == null){
             GameManager.instance.jugador4 = gameObject;
             jugador4 = true;
+            GameManager.instance.lleno = true;
+        }
+        else{
+            Destroy(gameObject);
         }
     }
 
