@@ -823,7 +823,13 @@ Prefab:
       propertyPath: m_Name
       value: Agujero Negro
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114089465557649084, guid: ff7aa7825e2f94e1d892a3f184ecbc83,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114089465557649084, guid: ff7aa7825e2f94e1d892a3f184ecbc83, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ff7aa7825e2f94e1d892a3f184ecbc83, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1762159053
