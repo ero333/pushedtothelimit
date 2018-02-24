@@ -16,30 +16,27 @@ public class PlayerController : MonoBehaviour {
     private float verticalLookRotation;
     private Transform cameraTransform;
     private Rigidbody2D rbPlayer;
+
+    private PlayerInputManager _inputManager;
     
     void Awake()
     {        
         rbPlayer = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {        
-                
-        
+        _inputManager = new PlayerInputManager(this);
     }
 
     void FixedUpdate()
     {
 		Collider2D[] coll2d = Physics2D.OverlapCircleAll ((Vector2)groundCheck.position, 0.01f);
-        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputX = _inputManager.MovementAxisValue;
 
 		if (inputX != 0 && coll2d.Length > 1)
 			rbPlayer.velocity = ((Vector2)transform.right * inputX) * walkSpeed;
 
-		if (Input.GetButtonDown("Jump") && coll2d.Length > 1)
+		if (_inputManager.JumpWasJustPressed && coll2d.Length > 1)
 			rbPlayer.AddForce(transform.up * jumpForce);
 
-		if (Input.GetButton("Vertical") && coll2d.Length > 0)
+		if (_inputManager.JetpackThurstIsPressed && coll2d.Length > 0)
 			rbPlayer.velocity = (transform.up * powerJetpack);
 		
     }

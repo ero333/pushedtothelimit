@@ -31,6 +31,7 @@ public class PlayerInputActions : PlayerActionSet
 
     public PlayerAction RotateAimLeft { get; private set; }
     public PlayerAction RotateAimRight { get; private set; }
+    public PlayerOneAxisAction RotateAim { get; private set; }
 
 
     public PlayerInputActions()
@@ -60,15 +61,17 @@ public class PlayerInputActions : PlayerActionSet
     private void SetupDefaultBindings()
     {
         MoveLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
+        MoveLeft.AddDefaultBinding(InputControlType.DPadLeft);
         MoveRight.AddDefaultBinding(InputControlType.LeftStickRight);
+        MoveRight.AddDefaultBinding(InputControlType.DPadRight);
 
-        Jump.AddDefaultBinding(InputControlType.Action1);
+        Jump.AddDefaultBinding(InputControlType.LeftBumper);
 
-        IgniteJetpack.AddDefaultBinding(InputControlType.LeftStickUp);
+        IgniteJetpack.AddDefaultBinding(InputControlType.LeftTrigger);
         RotateLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
         RotateRight.AddDefaultBinding(InputControlType.LeftStickRight);
 
-        Shoot.AddDefaultBinding(InputControlType.Action2);
+        Shoot.AddDefaultBinding(InputControlType.RightTrigger);
 
         AimUp.AddDefaultBinding(InputControlType.RightStickUp);
         AimDown.AddDefaultBinding(InputControlType.RightStickDown);
