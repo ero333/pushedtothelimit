@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AgujeroNegro : MonoBehaviour {
+	void OnCollisionEnter2D(Collision2D coll) {
+		Destroy(coll.gameObject);
+	}
 
-    private void OnTriggerEnter2D(Collider2D hit){
-        Destroy(hit);
-    }
-    
 }
