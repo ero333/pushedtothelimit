@@ -55,9 +55,7 @@ GameObject:
   - component: {fileID: 198352463100388598}
   - component: {fileID: 199409736073158806}
   - component: {fileID: 58264639185901062}
-  - component: {fileID: 114089465557649084}
   - component: {fileID: 50608017562703594}
-  - component: {fileID: 114958573132878018}
   m_Layer: 0
   m_Name: Agujero Negro
   m_TagString: Untagged
@@ -153,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471846290681988}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -81, y: -29, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4742039512297978}
@@ -265,32 +263,6 @@ CircleCollider2D:
   m_Offset: {x: -0.02, y: -0}
   serializedVersion: 2
   m_Radius: 1.6962055
---- !u!114 &114089465557649084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1471846290681988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3cf5cce26c74ab2b30b9a417700fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  G: 0.6674
-  rb: {fileID: 50983193824656692, guid: 0a2532be8281643179424631cf640059, type: 2}
---- !u!114 &114958573132878018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1471846290681988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3cf5cce26c74ab2b30b9a417700fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  G: 0.6674
-  rb: {fileID: 50608017562703594}
 --- !u!182 &182607747340870986
 WindZone:
   m_ObjectHideFlags: 1
@@ -364,7 +336,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2144219568
+  randomSeed: 1175168897
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3725,7 +3697,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 902758130
+  randomSeed: -1644970299
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7086,7 +7058,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 110984674
+  randomSeed: 432533374
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10492,7 +10464,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1846597072
+  randomSeed: 1313083458
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13853,7 +13825,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1495665744
+  randomSeed: 913742032
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17259,7 +17231,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2139646747
+  randomSeed: 1860269446
   InitialModule:
     serializedVersion: 3
     enabled: 1
