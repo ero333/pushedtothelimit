@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour {
     public GameObject jugador2;
     public GameObject jugador3;
     public GameObject jugador4;
-    GameObject[] jugadores;
+    public bool lleno;
+    public GameObject[] jugadores;
     public bool rondaEnCurso;
     public string ganador;
+    public bool activados;
 
     void Awake(){
 		if(instance == null){
@@ -22,11 +24,20 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
         jugadores = new GameObject[4];
+        DontDestroyOnLoad(gameObject);
 	}
 
     void Update(){
         if (rondaEnCurso == true){
             ControlRonda();
+            if(activados == false) {
+                for (int i = 0; i < jugadores.Length; i++){
+                    jugadores[i].SetActive(true);
+                }
+            }
+        }
+        if(rondaEnCurso == false){
+            EnsambladorRonda();
         }
 	}
 
@@ -40,29 +51,29 @@ public class GameManager : MonoBehaviour {
 
     public void EnsambladorRonda(){
         if (jugador1 != null){
-            jugadores[1] = jugador1;
+            jugadores[0] = jugador1;
         }
         if (jugador2 != null){
-            jugadores[2] = jugador2;
+            jugadores[1] = jugador2;
         }
         if (jugador3 != null){
-            jugadores[3] = jugador3;
+            jugadores[2] = jugador3;
         }
         if (jugador4 != null){
-            jugadores[4] = jugador4;
+            jugadores[3] = jugador4;
         }
     }
 
     public void ControlRonda(){
         int vivos = 0;
         for (int i = 0; i < jugadores.Length; i++){
-            if (jugadores[i].activeInHierarchy == true){
+            if (jugadores[i].gameObject != null){
                 vivos += 1;
             }
         }
         if(vivos == 1){
             for (int i = 0; i < jugadores.Length; i++){
-                if(jugadores[i].activeSelf == true){
+                if(jugadores[i].gameObject != null){
                     ganador = jugadores[i].name;
                 }
             }
