@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorJugador : MonoBehaviour {
 
-    public Color[] color;
+   // public Color[] color;
     SpriteRenderer jugador;
     AsignadorJugador asignador;
 
@@ -13,22 +13,22 @@ public class ColorJugador : MonoBehaviour {
         jugador = GetComponent<SpriteRenderer>();
     }
 
-    private void Start(){
-       AsignadorColor();
+    private void OnEnable(){
+        AsignadorColor();
     }
 
     void AsignadorColor(){
         if(asignador.jugador1 == true){
-            jugador.color = color[0];
+            jugador.color = Color.red;
         }
         if (asignador.jugador2 == true){
-            jugador.color = color[1];
+            jugador.color = Color.blue;
         }
         if (asignador.jugador3 == true){
-            jugador.color = color[2];
+            jugador.color = Color.green;
         }
         if (asignador.jugador4 == true){
-            jugador.color = color[3];
+            jugador.color = Color.yellow;
         }
     }
 }
