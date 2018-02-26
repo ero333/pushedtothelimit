@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 
     private PlayerInputManager _inputManager;
     
+
+	public PlayerInputManager GetInputManager { get { return _inputManager; } }
+
     void Awake()
     {        
         rbPlayer = GetComponent<Rigidbody2D>();

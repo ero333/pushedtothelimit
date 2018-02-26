@@ -575,3 +575,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d516e8b0327d41e4b9405f99ccdcaedc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1994137517 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1390558015889514, guid: 94c7b44b30c0e804185b0e9b6d1dbc3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 480016380}
+--- !u!114 &1994137518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994137517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d743eb5eda0c2e4d976f6cd7b35e455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VibrateIntensity: 1
+  vibrateTime: 1
+  timerFeedback: 1
+  srPlayer: {fileID: 1994137525}
+--- !u!212 &1994137525 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212255780701964998, guid: 94c7b44b30c0e804185b0e9b6d1dbc3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 480016380}
