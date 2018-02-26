@@ -40,10 +40,8 @@ GameObject:
   - component: {fileID: 114339474795014656}
   - component: {fileID: 114262165454936178}
   - component: {fileID: 114654389773781748}
-  - component: {fileID: 114622779630656624}
-  - component: {fileID: 114714538363434806}
-  - component: {fileID: 114248794862066904}
-  - component: {fileID: 114377373108156204}
+  - component: {fileID: 114716273302283676}
+  - component: {fileID: 114339064671359898}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -228,21 +226,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114248794862066904
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390558015889514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8aaefddec1908645af385ac8b1d3bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador1: 0
-  jugador2: 0
-  jugador3: 0
-  jugador4: 0
 --- !u!114 &114262165454936178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +313,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114339064671359898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390558015889514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d743eb5eda0c2e4d976f6cd7b35e455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VibrateIntensity: 1
+  vibrateTime: 1
+  timerFeedback: 1
+  srPlayer: {fileID: 212255780701964998}
 --- !u!114 &114339474795014656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,21 +346,6 @@ MonoBehaviour:
   groundedMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &114377373108156204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390558015889514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff46a8a23159f94ebdbb0576f80ae91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VibrateIntensity: 1
-  vibrateTime: 1
-  timerFeedback: 1
-  srPlayer: {fileID: 212255780701964998}
 --- !u!114 &114469830408262372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,19 +394,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114622779630656624
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390558015889514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e7b9ce5df3b63446bcf15724eea2b06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  G: 0.06674
-  rb: {fileID: 0}
 --- !u!114 &114654389773781748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 100
---- !u!114 &114714538363434806
+--- !u!114 &114716273302283676
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -444,14 +414,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1390558015889514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7d9e64a6bee4e41b0108d18fe7e4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: cd3cf5cce26c74ab2b30b9a417700fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
-  - {r: 0, g: 0, b: 1, a: 0}
-  - {r: 1, g: 0.97058827, b: 0, a: 0}
+  G: 0.06674
+  rb: {fileID: 50830579439469012}
 --- !u!212 &212255780701964998
 SpriteRenderer:
   m_ObjectHideFlags: 1
