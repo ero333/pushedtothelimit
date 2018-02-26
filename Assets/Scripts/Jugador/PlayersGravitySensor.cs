@@ -20,15 +20,18 @@ public class PlayersGravitySensor : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Planet"))
-            planet = other.gameObject.GetComponent<PlanetAttractor>();
+		if (other.CompareTag ("Planet")) {
+			gameObject.transform.parent = other.gameObject.transform;
+			planet = other.gameObject.GetComponent<PlanetAttractor> ();
+		}
         
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Planet") && other.GetComponent<PlanetAttractor>() == planet)
-            planet = null;
-
+		if (other.CompareTag ("Planet") && other.GetComponent<PlanetAttractor> () == planet) {
+			gameObject.transform.parent = null;
+			planet = null;
+		}
     }
 }
