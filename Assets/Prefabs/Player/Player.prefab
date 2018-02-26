@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 114262165454936178}
   - component: {fileID: 114654389773781748}
   - component: {fileID: 114716273302283676}
+  - component: {fileID: 114591002595920750}
+  - component: {fileID: 114147275266792816}
   - component: {fileID: 114339064671359898}
   m_Layer: 0
   m_Name: Player
@@ -210,6 +212,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 5.0816455, y: 9.264088}
   m_Direction: 0
+--- !u!114 &114147275266792816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390558015889514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7d9e64a6bee4e41b0108d18fe7e4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 0.9852941, g: 1, b: 0, a: 0}
 --- !u!114 &114174673435744300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -394,6 +412,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114591002595920750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390558015889514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8aaefddec1908645af385ac8b1d3bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador1: 0
+  jugador2: 0
+  jugador3: 0
+  jugador4: 0
 --- !u!114 &114654389773781748
 MonoBehaviour:
   m_ObjectHideFlags: 1
