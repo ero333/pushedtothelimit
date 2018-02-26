@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114262165454936178}
   - component: {fileID: 114654389773781748}
   - component: {fileID: 114716273302283676}
+  - component: {fileID: 114339064671359898}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -312,6 +313,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114339064671359898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390558015889514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d743eb5eda0c2e4d976f6cd7b35e455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VibrateIntensity: 1
+  vibrateTime: 1
+  timerFeedback: 1
+  srPlayer: {fileID: 212255780701964998}
 --- !u!114 &114339474795014656
 MonoBehaviour:
   m_ObjectHideFlags: 1
