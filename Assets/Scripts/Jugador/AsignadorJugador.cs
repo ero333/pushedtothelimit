@@ -10,6 +10,7 @@ public class AsignadorJugador : MonoBehaviour {
 
     private void Awake(){
         Asignador();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Asignador(){
