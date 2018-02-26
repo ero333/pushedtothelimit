@@ -16,13 +16,14 @@ public class healthFeedbackPlayer : MonoBehaviour {
 		dangerColor = Color.red;
 		normalColor = srPlayer.color;
 		playerInput = GetComponent<PlayerController> ().GetInputManager;
-		Feedback = true;
 	}
 	
 
 	void Update () {
-		if (Feedback)
+		if (Feedback) {
 			timer = timerFeedback;
+			Feedback = false;
+		}
 
 		timer -= Time.deltaTime;
 
