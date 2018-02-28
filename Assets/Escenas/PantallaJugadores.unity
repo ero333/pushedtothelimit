@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugadoresAIstanciar: 4
-  jugador: {fileID: 1390558015889514, guid: 94c7b44b30c0e804185b0e9b6d1dbc3c, type: 2}
   escenaAJugar: Stage
 --- !u!114 &8173401
 MonoBehaviour:
@@ -571,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugadoresAIstanciar: 2
-  jugador: {fileID: 1390558015889514, guid: 94c7b44b30c0e804185b0e9b6d1dbc3c, type: 2}
   escenaAJugar: Stage
 --- !u!114 &864002065
 MonoBehaviour:
@@ -708,7 +706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugadoresAIstanciar: 3
-  jugador: {fileID: 1390558015889514, guid: 94c7b44b30c0e804185b0e9b6d1dbc3c, type: 2}
   escenaAJugar: Stage
 --- !u!114 &1070638531
 MonoBehaviour:
