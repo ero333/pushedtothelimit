@@ -7,10 +7,10 @@ public class AsignadorJugador : MonoBehaviour {
     public bool jugador2;
     public bool jugador3;
     public bool jugador4;
-    ColorJugador colorJ;
 
     private void Awake(){
         Asignador();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Asignador(){
@@ -18,25 +18,27 @@ public class AsignadorJugador : MonoBehaviour {
             GameManager.instance.jugador1 = gameObject;
             jugador1 = true;
             GameManager.instance.jugadoresVivos += 1;
-              // gameObject.SetActive(false);
-        }
-        else if(GameManager.instance.jugador2 == null){
+            gameObject.SetActive(false);
+        }else if(GameManager.instance.jugador2 == null){
             GameManager.instance.jugador2 = gameObject;
             jugador2 = true;
             GameManager.instance.jugadoresVivos += 1;
-           //    gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         else if(GameManager.instance.jugador3 == null){
             GameManager.instance.jugador3 = gameObject;
             jugador3 = true;
             GameManager.instance.jugadoresVivos += 1;
-            // gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
-        else{
+        else if(GameManager.instance.jugador4 == null){
             GameManager.instance.jugador4 = gameObject;
             jugador4 = true;
             GameManager.instance.jugadoresVivos += 1;
-          //   gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+        else{
+            Destroy(gameObject);
         }
     }
 

@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour {
     public bool rondaEnCurso;
     public string ganador;
     public int jugadoresVivos;
-    public int jugadoreEnPartida;
 
     void Awake(){
 		if(instance == null){
