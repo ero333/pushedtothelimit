@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayersGravitySensor))]
 public class PlayerController : MonoBehaviour {
 	public Transform groundCheck;
+	public Transform rotatePoint;
+	public float angle = 2;
     public float walkSpeed = 6;
     public float jumpForce = 220;
 	public float powerJetpack = 220;
@@ -39,15 +41,23 @@ public class PlayerController : MonoBehaviour {
 		if (_inputManager.JumpWasJustPressed && coll2d.Length > 1)
 			rbPlayer.AddForce(transform.up * jumpForce);
 
-		if (_inputManager.JetpackThurstIsPressed && coll2d.Length > 0)
+		if (_inputManager.JetpackThurstIsPressed /* && coll2d.Length > 0*/) {
 			rbPlayer.velocity = (transform.up * powerJetpack);
-		
-    }
+			if (inputX != 0)
+				transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
+			
+		} else if (coll2d.Length == 0 && inputX != 0) {
+			transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 
+		}
+	
+
+    }
+	/*
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.name == "Agujero Negro")
 			Destroy (gameObject);
 
-	}
+	}*/
 		
 }
