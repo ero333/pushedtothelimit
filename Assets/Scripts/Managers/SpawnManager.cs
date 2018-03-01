@@ -8,7 +8,8 @@ public class SpawnManager : MonoBehaviour {
     //public List<GameObject> planetas;
     //[Header("0 = Norte , 1 = Sur , 2 = Este , 3 = Oeste")]
     //public List<Transform> spawnpoints;
-    public List<Transform> spawnPlayer; 
+    public List<Transform> spawnPlayer;
+    public GameObject jugadorPrefab;
     /* 
     Vector2 posicionAgujeroNegro;
     Vector2 ultimaPosicionN;
@@ -24,6 +25,7 @@ public class SpawnManager : MonoBehaviour {
 
     private void Awake(){
         GameManager.instance.rondaEnCurso = true;
+        SpawPlayers();
     }
 
     private void Start(){
@@ -34,17 +36,19 @@ public class SpawnManager : MonoBehaviour {
 
     private void OnDestroy(){
         GameManager.instance.rondaEnCurso = false;
-        if (GameManager.instance.jugador1 != null){
-            Destroy(GameManager.instance.jugador1);  
-        }
-        if (GameManager.instance.jugador2 != null){
-            Destroy(GameManager.instance.jugador2);
-        }
-        if (GameManager.instance.jugador3 != null){
-            Destroy(GameManager.instance.jugador3);
-        }
-        if (GameManager.instance.jugador4 != null){
-            Destroy(GameManager.instance.jugador4);
+        if(GameManager.instance.jugadoresVivos > 1) {
+            if (GameManager.instance.jugador1 != null){
+                Destroy(GameManager.instance.jugador1);  
+            }
+            if (GameManager.instance.jugador2 != null){
+                Destroy(GameManager.instance.jugador2);
+            }
+            if (GameManager.instance.jugador3 != null){
+                Destroy(GameManager.instance.jugador3);
+            }
+            if (GameManager.instance.jugador4 != null){
+                Destroy(GameManager.instance.jugador4);
+            }
         }
     }
 
@@ -140,20 +144,41 @@ public class SpawnManager : MonoBehaviour {
     public void AcomodarJugadores(){
         if(GameManager.instance.jugador1 == true){
             GameManager.instance.jugador1.transform.position = spawnPlayer[0].position;
-            GameManager.instance.jugador1.SetActive(true);
+          //  GameManager.instance.jugador1.SetActive(true);
         }
         if (GameManager.instance.jugador2 == true){
             GameManager.instance.jugador2.transform.position = spawnPlayer[1].position;
-            GameManager.instance.jugador2.SetActive(true);
+           // GameManager.instance.jugador2.SetActive(true);
         }
         if (GameManager.instance.jugador3 == true){
             GameManager.instance.jugador3.transform.position = spawnPlayer[2].position;
-            GameManager.instance.jugador3.SetActive(true);
+         //   GameManager.instance.jugador3.SetActive(true);
         }
         if (GameManager.instance.jugador4 == true){
             GameManager.instance.jugador4.transform.position = spawnPlayer[3].position;
-            GameManager.instance.jugador4.SetActive(true);
+         //   GameManager.instance.jugador4.SetActive(true);
         }
         
+    }
+
+    public void SpawPlayers(){
+        if(GameManager.instance.jugadoreEnPartida == 2)
+        {
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+        }
+        if (GameManager.instance.jugadoreEnPartida == 3)
+        {
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+        }
+        if (GameManager.instance.jugadoreEnPartida == 4)
+        {
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+            Instantiate(jugadorPrefab);
+        }
     }
 }
