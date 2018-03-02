@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public int jugadoresVivos;
     public int jugadoreEnPartida;
 
+
     void Awake(){
 		if(instance == null){
 			instance = this;
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour {
     public void CaragarPanatallaVitoria(){
         SceneManager.LoadScene(pantallaVictoria);
     }
+
+
  
     public void ControlRonda(){
         if (rondaEnCurso == true){
@@ -49,7 +52,9 @@ public class GameManager : MonoBehaviour {
                     ganador = "Jugador 4";
                 }
                 rondaEnCurso = false;
-                CaragarPanatallaVitoria();
+				SpawnNaveNASO nave;
+				nave = FindObjectOfType<SpawnNaveNASO> ();
+				nave.NaveAlRescate ();
             }
         }
     }
