@@ -167,6 +167,7 @@ public class SpawnManager : MonoBehaviour {
         AsignadorJugador asignador = newPlayer.GetComponent<AsignadorJugador>();
         int playerNumber = asignador.Asignador();
         newPlayer.GetComponent<PlayerController>().InitializeInputController(playerNumber);
+		newPlayer.GetComponent<PlayerController> ().PlayerName = playerNumber;
         newPlayer.GetComponent<ColorJugador>().AsignadorColor(asignador);
     }
 

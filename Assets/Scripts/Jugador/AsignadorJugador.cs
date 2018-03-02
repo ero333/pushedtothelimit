@@ -8,7 +8,13 @@ public class AsignadorJugador : MonoBehaviour {
     public bool jugador3;
     public bool jugador4;
     ColorJugador colorJ;
+	void Start()
+	{
+	}
 
+	void Update()
+	{
+	}
     public int Asignador()
     {
         int ret = 0;
