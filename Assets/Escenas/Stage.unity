@@ -666,6 +666,16 @@ Prefab:
       propertyPath: m_Radius
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 50608017562703594, guid: ff7aa7825e2f94e1d892a3f184ecbc83,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50608017562703594, guid: ff7aa7825e2f94e1d892a3f184ecbc83,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff7aa7825e2f94e1d892a3f184ecbc83, type: 2}
   m_IsPrefabParent: 0

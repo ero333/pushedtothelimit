@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AgujeroNegro : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
-		Destroy(coll.gameObject);
+		if(coll.gameObject.name != "arenaLimit")
+			Destroy(coll.gameObject);
 	}
 
 }
