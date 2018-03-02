@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     private float verticalLookRotation;
     private Transform cameraTransform;
     private Rigidbody2D rbPlayer;
+	private int player;
 	private bool jetPackEnabled;
 
     private PlayerInputManager _inputManager;
@@ -28,7 +29,16 @@ public class PlayerController : MonoBehaviour {
     {        
         rbPlayer = GetComponent<Rigidbody2D>();
 
-        _inputManager = new PlayerInputManager(this);
+		if (GetComponent<AsignadorJugador> ().jugador1)
+			player = 1;
+		else if (GetComponent<AsignadorJugador> ().jugador2)
+			player = 2;
+		else if (GetComponent<AsignadorJugador> ().jugador3)
+			player = 3;
+		else if (GetComponent<AsignadorJugador> ().jugador4)
+			player = 4;
+
+		_inputManager = new PlayerInputManager (this, player);
 
 
     }
