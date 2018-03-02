@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     private float verticalLookRotation;
     private Transform cameraTransform;
     private Rigidbody2D rbPlayer;
-	private float powerJetpackConstant;
+	private bool jetPackEnabled;
 
     private PlayerInputManager _inputManager;
     
@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour {
         rbPlayer = GetComponent<Rigidbody2D>();
         _inputManager = new PlayerInputManager(this);
 
-		//Guardo el valor inicial del Power del Jetpack
-		powerJetpackConstant = powerJetpack;
     }
 
     void FixedUpdate()
@@ -45,7 +43,9 @@ public class PlayerController : MonoBehaviour {
 			rbPlayer.AddForce (transform.up * jumpForce);
 
 		if (_inputManager.JetpackThurstIsPressed /* && coll2d.Length > 0*/) {
-			rbPlayer.velocity = (transform.up * powerJetpack);
+			if(jetPackEnabled)	
+				rbPlayer.velocity = (transform.up * powerJetpack);
+			
 			if (inputX != 0)
 				transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 			
@@ -59,24 +59,19 @@ public class PlayerController : MonoBehaviour {
 		
 		if (col.gameObject.tag == "arenaLimit") {
 			//Si sale de los limites el jetpack deja de funcionar hasta volver a un planeta
-			powerJetpack = 0;
-			Debug.Log ("jetpack en 0");
+			jetPackEnabled = false;
 
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
 
-		if (col.gameObject.name == "Agujero Negro")
-			Destroy (gameObject);
+	void OnCollisionEnter2D(Collision2D col){
 		
-		else if (col.gameObject.tag == "Planet") {
+		 if (col.gameObject.tag == "Planet") {
 			//Al tocar un planeta se "recarga" el Jetpack
-//			powerJetpack = powerJetpackConstant;
-//			Debug.Log ("jetpack recargado");
+			jetPackEnabled = true;
 
 		}
-
 
 	}
 		

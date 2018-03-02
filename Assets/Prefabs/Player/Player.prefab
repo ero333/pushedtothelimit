@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114591002595920750}
   - component: {fileID: 114339064671359898}
   - component: {fileID: 114868887620990134}
+  - component: {fileID: 70397407827485396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -226,6 +227,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &70397407827485396
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390558015889514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: d23c55e0c13614a87b104fb2a0193041, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 5.0816455, y: 9.264088}
+  m_Direction: 0
 --- !u!70 &70462572504691706
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -375,10 +391,10 @@ MonoBehaviour:
   angle: 2
   walkSpeed: 20
   jumpForce: 1200
-  powerJetpack: 20
   groundedMask:
     serializedVersion: 2
     m_Bits: 0
+  powerJetpack: 220
 --- !u!114 &114469830408262372
 MonoBehaviour:
   m_ObjectHideFlags: 1
