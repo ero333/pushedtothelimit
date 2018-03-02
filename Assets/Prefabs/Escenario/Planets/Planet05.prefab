@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887951ad67df14813a1e1e488cc82a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -100
-  RotPlayerToPlanetSpeed: 12
+  gravity: -300
+  RotSpeed: 12
 --- !u!212 &212366246108934132
 SpriteRenderer:
   m_ObjectHideFlags: 1
