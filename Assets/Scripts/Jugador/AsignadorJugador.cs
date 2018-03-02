@@ -9,35 +9,40 @@ public class AsignadorJugador : MonoBehaviour {
     public bool jugador4;
     ColorJugador colorJ;
 
-    private void Awake(){
-        Asignador();
-    }
-
-    void Asignador(){
+    public int Asignador()
+    {
+        int ret = 0;
         if(GameManager.instance.jugador1 == null){
             GameManager.instance.jugador1 = gameObject;
             jugador1 = true;
-            GameManager.instance.jugadoresVivos += 1;
+
+            ret = 1;
               // gameObject.SetActive(false);
         }
         else if(GameManager.instance.jugador2 == null){
             GameManager.instance.jugador2 = gameObject;
             jugador2 = true;
-            GameManager.instance.jugadoresVivos += 1;
+
+            ret = 2;
            //    gameObject.SetActive(false);
         }
         else if(GameManager.instance.jugador3 == null){
             GameManager.instance.jugador3 = gameObject;
             jugador3 = true;
-            GameManager.instance.jugadoresVivos += 1;
+
+            ret = 3;
             // gameObject.SetActive(false);
         }
         else{
             GameManager.instance.jugador4 = gameObject;
             jugador4 = true;
-            GameManager.instance.jugadoresVivos += 1;
+
+            ret = 4;
           //   gameObject.SetActive(false);
         }
+
+        GameManager.instance.jugadoresVivos++;
+        return ret;
     }
 
     private void OnDestroy(){

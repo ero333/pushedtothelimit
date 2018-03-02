@@ -161,24 +161,21 @@ public class SpawnManager : MonoBehaviour {
         
     }
 
-    public void SpawPlayers(){
-        if(GameManager.instance.jugadoreEnPartida == 2)
+    private void CreatePlayer()
+    {
+        GameObject newPlayer = Instantiate(jugadorPrefab);
+        AsignadorJugador asignador = newPlayer.GetComponent<AsignadorJugador>();
+        int playerNumber = asignador.Asignador();
+        newPlayer.GetComponent<PlayerController>().InitializeInputController(playerNumber);
+        newPlayer.GetComponent<ColorJugador>().AsignadorColor(asignador);
+    }
+
+    public void SpawPlayers()
+    {
+        for (int i = 0; i < GameManager.instance.jugadoreEnPartida; i++)
         {
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
+            CreatePlayer();
         }
-        if (GameManager.instance.jugadoreEnPartida == 3)
-        {
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
-        }
-        if (GameManager.instance.jugadoreEnPartida == 4)
-        {
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
-            Instantiate(jugadorPrefab);
-        }
+
     }
 }

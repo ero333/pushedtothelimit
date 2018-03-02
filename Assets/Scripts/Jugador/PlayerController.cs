@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour {
     void Awake()
     {        
         rbPlayer = GetComponent<Rigidbody2D>();
+
         _inputManager = new PlayerInputManager(this);
+
 
     }
 
@@ -64,15 +66,21 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-
 	void OnCollisionEnter2D(Collision2D col){
-		
-		 if (col.gameObject.tag == "Planet") {
+
+		if (col.gameObject.tag == "Planet") {
 			//Al tocar un planeta se "recarga" el Jetpack
 			jetPackEnabled = true;
 
 		}
 
 	}
+
+    public void InitializeInputController(int playerNumber)
+    {
+        _inputManager = new PlayerInputManager(this, playerNumber);
+    }
+
+
 		
 }
