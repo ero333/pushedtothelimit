@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour {
     void Awake()
     {        
         rbPlayer = GetComponent<Rigidbody2D>();
-        _inputManager = new PlayerInputManager(this);
     }
 
     void FixedUpdate()
@@ -52,6 +51,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	
 
+    }
+
+    public void InitializeInputController(int playerNumber)
+    {
+        _inputManager = new PlayerInputManager(this, playerNumber);
     }
 	/*
 	void OnCollisionEnter2D(Collision2D col){

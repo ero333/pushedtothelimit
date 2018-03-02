@@ -5,15 +5,13 @@ using UnityEngine;
 public class ColorJugador : MonoBehaviour {
 
     SpriteRenderer jugador;
-    AsignadorJugador asignador;
 
     private void Awake(){
-        asignador = GetComponent<AsignadorJugador>();
         jugador = GetComponent<SpriteRenderer>();
-        AsignadorColor();
     }
 
-     public void AsignadorColor(){
+     public void AsignadorColor(AsignadorJugador asignador)
+    {
         if(asignador.jugador1 == true){
             jugador.color = Color.red;
         }

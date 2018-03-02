@@ -1,6 +1,5 @@
 ﻿using InControl;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputManager
@@ -24,28 +23,29 @@ public class PlayerInputManager
 
     #endregion
 
-    public PlayerInputManager(PlayerController player)
+    public PlayerInputManager(PlayerController player, int playerNumber)
     {
         _player = player;
 
+        //TODO: ¿Es esta la forma en la que queremos implementar la asignación de controles?
         _actions = new PlayerInputActions();
 
-        //TODO: ¿Es esta la forma en la que queremos implementar la asignación de controles?
+        Debug.Assert(InputManager.Devices.Count >= playerNumber, "There are not enough controllers connected!");
 
-        foreach (InputDevice device in InputManager.Devices)
+        if (InputManager.Devices.Count >= playerNumber && InputManager.Devices[playerNumber - 1].IsAttached)
         {
-            if (device.IsAttached)
-            {
-                _device = device;
-            }
-
+            _device = InputManager.Devices[playerNumber - 1];
+            _actions.Device = _device;
+            return;
         }
 
-        _actions.Device = _device;
+        _actions.Enabled = false;
     }
 
     public void Vibrate(float intensity, float duration)
     {
+        if (_device == null) return;
+
         if (duration <= 0 || intensity <= 0) return;
 
         _player.StartCoroutine(MakeGamepadVibrate(intensity, duration));
