@@ -7,6 +7,11 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private BaseBullet _bullet;
 
+    [SerializeField]
+    private float _cooldown;
+
+    private float _lastTimeShot;
+
     private Transform _bulletSpawnPoint;
     private ParticleSystem _particles;
 
@@ -15,6 +20,14 @@ public class Weapon : MonoBehaviour
         get
         {
             return _ammo != -1 && _ammo <= 0;
+        }
+    }
+
+    public bool CanShoot
+    {
+        get
+        {
+            return Time.time - _lastTimeShot > _cooldown || _lastTimeShot == 0;
         }
     }
 
@@ -34,6 +47,12 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
+        if (!CanShoot)
+        {
+            Debug.Log("Weapon in cooldown state.", gameObject);
+            return;
+        }
+
         if (_ammo == 0)
         {
             Debug.LogError("Trying to fire a weapon with no ammo. Should have switched to the default weapon!", gameObject);
@@ -48,5 +67,7 @@ public class Weapon : MonoBehaviour
 
         if (_ammo != -1)
             _ammo--;
+
+        _lastTimeShot = Time.time;
     }
 }
