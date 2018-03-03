@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
 				inputX = 1;
 
 			jump = Input.GetKeyDown (KeyCode.W);
-			jetpackAction = Input.GetKey(KeyCode.W);
+			jetpackAction = Input.GetKey (KeyCode.W);
 		}
 
 		if (PlayerName == 2) {
@@ -117,18 +117,18 @@ public class PlayerController : MonoBehaviour {
 				inputX = 1;
 
 			jump = Input.GetKeyDown (KeyCode.I);
-			jetpackAction = Input.GetKeyDown (KeyCode.I);
+			jetpackAction = Input.GetKey (KeyCode.I);
 		}
 
 		if (PlayerName == 4) {
-			if (Input.GetKey (KeyCode.Keypad9))
+			if (Input.GetKey (KeyCode.Keypad4))
 				inputX = -1;
 
 			if (Input.GetKey (KeyCode.Keypad6))
 				inputX = 1;
 
 			jump = Input.GetKeyDown (KeyCode.Keypad8);
-			jetpackAction = Input.GetKeyDown (KeyCode.Keypad8);
+			jetpackAction = Input.GetKey (KeyCode.Keypad8);
 		}
 
 		if (inputX != 0 && coll2d.Length > 1)
