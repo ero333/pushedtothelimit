@@ -20,6 +20,7 @@ public abstract class BaseBullet : MonoBehaviour
 
     private void OnCollisionWithPlayer(GameObject player)
     {
+        Debug.Log("Le pegaron un balazo al player", player);
         ApplyEffectOnPlayer(player);
         Destroy(gameObject);
     }
