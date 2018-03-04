@@ -21,11 +21,12 @@ public class JetpackFireController : MonoBehaviour {
     public void OnJetpackEnabled()
     {
         jetpackAnimator.enabled = true;
+        jetpackSprite.SetActive(true);
     }
 
     public void OnJetpackDisabled()
     {
         jetpackAnimator.enabled = false;
-        jetpackSprite.transform.localScale -= new Vector3(1, 1, 1);
+        jetpackSprite.SetActive(false);
     }
 }
