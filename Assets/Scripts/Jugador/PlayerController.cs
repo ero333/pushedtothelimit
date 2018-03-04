@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 jumpForce;
 	private Collider2D[] coll2d;
 
+    public JetpackFireController jetpackController;
+
 
 	public PlayerInputManager GetInputManager { get { return _inputManager; } }
 
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.tag == "arenaLimit") {
 			//Si sale de los limites el jetpack deja de funcionar hasta volver a un planeta
 			jetPackEnabled = false;
-
+            jetpackController.OnJetpackDisabled();
 		}
 	}
 
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.tag == "Planet") {
 			//Al tocar un planeta se "recarga" el Jetpack
 			jetPackEnabled = true;
+            jetpackController.OnJetpackDisabled();
 		}
 
 	}
@@ -141,9 +144,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if (jetpackAction) {
 			//if(jetPackEnabled)	
-				playerVelocity = (transform.up * powerJetpack);
+			playerVelocity = (transform.up * powerJetpack);
+            jetpackController.OnJetpackEnabled();
 
-			if (inputX != 0)
+            if (inputX != 0)
 				transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 
 		} else if (coll2d.Length == 0 && inputX != 0) {
