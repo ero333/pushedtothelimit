@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CatPot.Framework.Messaging;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -169,6 +170,8 @@ public class SpawnManager : MonoBehaviour {
         newPlayer.GetComponent<PlayerController>().InitializeInputController(playerNumber);
 		newPlayer.GetComponent<PlayerController> ().PlayerName = playerNumber;
         newPlayer.GetComponent<ColorJugador>().AsignadorColor(asignador);
+
+        EventDispatcher.Instance.Dispatch(new PlayerSpawnedEvent(gameObject, newPlayer.GetComponent<PlayerController>()));
     }
 
     public void SpawPlayers()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CatPot.Framework.Messaging;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -190,5 +191,10 @@ public class PlayerController : MonoBehaviour {
 
 		}
 	}
+
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.Dispatch(new PlayerDiedEvent(gameObject, this));
+    }
 
 }
