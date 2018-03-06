@@ -6,11 +6,16 @@ public class JetpackFireController : MonoBehaviour {
 
     public GameObject jetpack;
     public GameObject jetpackSprite;
+    public ParticleSystem jetpackFireParticle;
     private Animator jetpackAnimator;
+
+    public bool isUsingParticles; // Este bool es para elegir entre partículas y animación.
 	// Use this for initialization
 	void Start () {
+        // isUsingParticles = true;
         jetpackAnimator = jetpack.GetComponentInChildren<Animator>();
-        jetpackAnimator.enabled = false;
+        jetpackAnimator.enabled = false; // Apago la animación por las dudas
+        jetpackFireParticle.Stop(); // También apago el sistema de partículas, también por las dudas.
     }
 	
 	// Update is called once per frame
@@ -20,13 +25,27 @@ public class JetpackFireController : MonoBehaviour {
 
     public void OnJetpackEnabled()
     {
-        jetpackAnimator.enabled = true;
-        jetpackSprite.SetActive(true);
+        if (isUsingParticles) // Si decido usar el sistema de partículas les doy play...
+        {
+            jetpackFireParticle.Play();
+        }
+        else // Si no, activo el sprite y su animación.
+        {
+            jetpackAnimator.enabled = true;
+            jetpackSprite.SetActive(true);
+        }
     }
 
     public void OnJetpackDisabled()
     {
-        jetpackAnimator.enabled = false;
-        jetpackSprite.SetActive(false);
+        if (isUsingParticles)
+        {
+            jetpackFireParticle.Stop();
+        }
+        else
+        { 
+            jetpackAnimator.enabled = false;
+            jetpackSprite.SetActive(false);
+        }
     }
 }
