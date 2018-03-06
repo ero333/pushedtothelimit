@@ -45,8 +45,10 @@ public class Weapon : MonoBehaviour
         Debug.Assert(_particles != null, "Weapon prefab missing Particles child.", gameObject);
     }
 
-    public void Shoot()
-    {
+	//[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
+	//[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
+	public void Shoot(int shooter)
+	{
         if (!CanShoot)
         {
             Debug.Log("Weapon in cooldown state.", gameObject);
@@ -63,7 +65,9 @@ public class Weapon : MonoBehaviour
         BaseBullet newBullet = Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.identity, null);
         newBullet.transform.right = _bulletSpawnPoint.transform.right;
 
-        newBullet.OnShot();
+	//[Berdy] Nuevo llamado a OnShoot pasandole el shooter
+		newBullet.OnShot(shooter);
+		//
 
         if (_ammo != -1)
             _ammo--;

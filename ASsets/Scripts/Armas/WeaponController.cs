@@ -58,7 +58,7 @@ public class WeaponController : MonoBehaviour {
 
 		if (shoot) {
 			Debug.Log (shoot);
-			_activeWeapon.Shoot ();
+			_activeWeapon.Shoot (playername);
 		}
 
 		shoot = false;

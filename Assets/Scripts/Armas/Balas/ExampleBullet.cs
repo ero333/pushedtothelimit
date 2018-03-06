@@ -8,7 +8,7 @@ public class ExampleBullet : BaseBullet
 {
     private Weapon _weapon;
 
-    public override void OnShot()
+	public override void OnShot(int shooter)
     {
         Debug.Log("ExampleBullet disparada", gameObject);
     }

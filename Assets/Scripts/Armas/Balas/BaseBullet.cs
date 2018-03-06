@@ -13,7 +13,9 @@ public abstract class BaseBullet : MonoBehaviour
      *  [ ] Partículas cuando se destruyen?
      */
 
-    public abstract void OnShot();
+	//[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
+	//[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
+	public abstract void OnShot(int shooter);
 
     protected virtual void ApplyEffectOnPlayer(GameObject player) { }
     protected virtual void ApplyEffectOnPlanet(GameObject planet) { }
