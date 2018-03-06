@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class Ganador : MonoBehaviour {
     Text texto;
@@ -11,7 +12,13 @@ public class Ganador : MonoBehaviour {
     }
 
     private void Start(){
-        NombreGanador();
+
+		Analytics.CustomEvent("PartidaFin", new Dictionary<string, object>
+		{
+				{ "ganador", GameManager.instance.ganador }
+		});
+		
+		NombreGanador();
     }
 
     void NombreGanador(){
