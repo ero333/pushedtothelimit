@@ -7,8 +7,8 @@ using UnityEngine;
 public class PusherBullet : BaseBullet
 {
     private Weapon _weapon;
-	private float pushPower = 20000.0f;
-	private float bulletSpeed = 10.0f;
+	public float pushPower = 20000.0f;
+	public float bulletSpeed = 500.0f;
 	private Rigidbody2D rbPlayer;
 	private Rigidbody2D rbBullet;
 	private Vector2 pushVelocidad;

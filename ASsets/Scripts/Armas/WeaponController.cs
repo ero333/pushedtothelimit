@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour {
 
-	//public GameObject _defaultWeapon;
-	//public GameObject _alternatWeapon;
+	public Weapon _defaultWeapon;
+	public Transform _weaponPosition;
+
 	private Weapon _activeWeapon;
 	int playername;
 	private PlayerController playcontrol;
@@ -13,7 +14,8 @@ public class WeaponController : MonoBehaviour {
 	private PlayerInputManager inputControl;
 
 	void Start () {
-		_activeWeapon = gameObject.GetComponentInChildren<Weapon> ();
+		_activeWeapon = Instantiate(_defaultWeapon,_weaponPosition.position,Quaternion.identity);
+		_activeWeapon.transform.parent = _weaponPosition; 
 		playcontrol = GetComponent<PlayerController> ();
 		inputControl = playcontrol.GetInputManager;
 
@@ -30,7 +32,7 @@ public class WeaponController : MonoBehaviour {
 	public void ShootWeapon (Weapon newWeapon){
 
 		if (playername == 1) {
-			if (Input.GetKey (KeyCode.S)) {
+			if (Input.GetKeyDown (KeyCode.S)) {
 				Debug.Log ("Player 1 dispara");
 				shoot = true;
 			}
@@ -38,7 +40,7 @@ public class WeaponController : MonoBehaviour {
 		}
 
 		if (playername == 2) {
-			if (Input.GetKey (KeyCode.DownArrow)) {
+			if (Input.GetKeyDown (KeyCode.DownArrow)) {
 				Debug.Log ("Player 2 dispara");
 				shoot = true;
 			}
