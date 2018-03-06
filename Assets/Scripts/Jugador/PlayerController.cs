@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKey (KeyCode.LeftArrow))
 				inputX = -1;
 
-			if (Input.GetKey (KeyCode.RightArrow))
+			if (Input.GetKey(KeyCode.RightArrow))
 				inputX = 1;
 			jetpackAction = Input.GetKey (KeyCode.UpArrow);
 			jump = Input.GetKeyDown (KeyCode.UpArrow);
@@ -179,6 +179,8 @@ public class PlayerController : MonoBehaviour {
 		else if(_inputManager.JetpackThurstIsPressed /* && coll2d.Length > 0*/) {
 			//if(jetPackEnabled)	
 				playerVelocity = (transform.up * powerJetpack);
+				jetpackController.OnJetpackEnabled();
+
 
 
 			if (inputX != 0) {

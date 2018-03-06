@@ -34,9 +34,12 @@ public class FlipPlayerController : MonoBehaviour {
 		if (inputX > 0) {
 			transform.localScale = new Vector3(1,1,1);
 			weaponAnchor.localRotation = Quaternion.Euler (0, 0, 0);
+			//transform.Find("WeaponAnchor").localScale = new Vector3 (1,1,1);
 		} else if(inputX < 0){
 			transform.localScale = new Vector3(-1,1,1);
 			weaponAnchor.localRotation = Quaternion.Euler (0, 180, 0);
+			//transform.Find("WeaponAnchor").localScale = new Vector3 (-1,1,1);
+
 		}
 		inputX = 0;
 	}

@@ -33,17 +33,15 @@ public class WeaponController : MonoBehaviour {
 
 		if (playername == 1) {
 			if (Input.GetKeyDown (KeyCode.S)) {
-				Debug.Log ("Player 1 dispara");
+				//Debug.Log ("Player 1 dispara");
 				shoot = true;
 			}
 			
 		}
 
 		if (playername == 2) {
-			if (Input.GetKeyDown (KeyCode.DownArrow)) {
-				Debug.Log ("Player 2 dispara");
+			if (Input.GetKeyDown (KeyCode.DownArrow))
 				shoot = true;
-			}
 		}
 
 		if (playername == 3) {
@@ -56,8 +54,11 @@ public class WeaponController : MonoBehaviour {
 				shoot = true;
 		}
 
+		if (inputControl.ShootIsPressed)
+			shoot = true;
+
 		if (shoot) {
-			Debug.Log (shoot);
+			//Debug.Log (shoot);
 			_activeWeapon.Shoot (playername);
 		}
 
