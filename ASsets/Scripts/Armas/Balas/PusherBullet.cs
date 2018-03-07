@@ -7,7 +7,7 @@ using UnityEngine;
 public class PusherBullet : BaseBullet
 {
     private Weapon _weapon;
-	public float pushPower = 30000.0f;
+	public float pushPower = 100.0f;
 	public float bulletSpeed = 5000.0f;
 	private Rigidbody2D rbPlayer;
 	private Rigidbody2D rbBullet;
@@ -33,7 +33,8 @@ public class PusherBullet : BaseBullet
 		//Comparo los PlayerNames, si son iguales no aplica el efecto, sino hace el Push
 		if (playername != enemyname) {
 			rbPlayer = player.GetComponent<Rigidbody2D> ();
-			rbPlayer.AddForce (rbPlayer.transform.right * pushPower);
+			rbPlayer.AddForce (rbPlayer.transform.up * pushPower);
+			player.transform.parent = null;
 		}
 	
     }
