@@ -6,7 +6,7 @@ public class PlanetAttractor : MonoBehaviour {
     public float gravity = -9.8f;
     public float RotSpeed = 1;
 
-	/*
+    /*
     void Update()
     {
         Collider2D other = Physics2D.OverlapCircle(transform.position, radius);
@@ -25,8 +25,7 @@ public class PlanetAttractor : MonoBehaviour {
         
         body.AddForce(gravityUp * gravity);
 
-        body.transform.up = Vector2.Lerp(body.transform.up, gravityUp, Time.deltaTime* RotSpeed);        
+        body.transform.up = Vector2.Lerp(body.transform.up, gravityUp, Time.deltaTime * RotSpeed);
     }
-
 
 }

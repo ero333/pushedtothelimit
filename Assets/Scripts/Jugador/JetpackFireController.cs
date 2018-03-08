@@ -10,7 +10,7 @@ public class JetpackFireController : MonoBehaviour {
     private Animator jetpackAnimator;
 
     public bool isUsingParticles; // Este bool es para elegir entre partículas y animación.
-	// Use this for initialization
+
 	void Start () {
         // isUsingParticles = true;
         jetpackAnimator = jetpack.GetComponentInChildren<Animator>();
@@ -18,11 +18,6 @@ public class JetpackFireController : MonoBehaviour {
         jetpackFireParticle.Stop(); // También apago el sistema de partículas, también por las dudas.
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void OnJetpackEnabled()
     {
         if (isUsingParticles) // Si decido usar el sistema de partículas les doy play...

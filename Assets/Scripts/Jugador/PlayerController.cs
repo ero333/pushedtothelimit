@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour {
 
     public JetpackFireController jetpackController;
 
+    Jetpack jetpack;
+
 
 	public PlayerInputManager GetInputManager { get { return _inputManager; } }
 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 		//fin para test
         rbPlayer = GetComponent<Rigidbody2D>();
 		coll2d = new Collider2D[0];
+        jetpack = GetComponent<Jetpack>();
     }
 
 	void Update()
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 		if (coll2d.Length != 0)
 			playerVelocity = Vector2.zero;
 	}
-
+    /*
 	void OnCollisionExit2D(Collision2D col){
 		
 		if (col.gameObject.tag == "arenaLimit") {
@@ -81,7 +84,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 	}
-
+    */
     public void InitializeInputController(int playerNumber)
     {
         _inputManager = new PlayerInputManager(this, playerNumber);
@@ -109,9 +112,10 @@ public class PlayerController : MonoBehaviour {
 
 			if (Input.GetKey(KeyCode.RightArrow))
 				inputX = 1;
-			jetpackAction = Input.GetKey (KeyCode.UpArrow);
+			
 			jump = Input.GetKeyDown (KeyCode.UpArrow);
-		}
+            jetpackAction = Input.GetKey(KeyCode.UpArrow);
+        }
 
 		if (PlayerName == 3) {
 			if (Input.GetKey (KeyCode.J))
@@ -144,10 +148,12 @@ public class PlayerController : MonoBehaviour {
 
 		}
 		else if (jetpackAction) {
-			//if(jetPackEnabled)	
+            //if(jetPackEnabled)
+            /*	
 			playerVelocity = (transform.up * powerJetpack);
             jetpackController.OnJetpackEnabled();
-
+            */
+            jetpack.Movimiento();
             if (inputX != 0)
 				transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 

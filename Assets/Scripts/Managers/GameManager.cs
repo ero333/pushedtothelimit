@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour {
                 }
                 rondaEnCurso = false;
 				SpawnNaveNASO nave;
-				nave = FindObjectOfType<SpawnNaveNASO> ();
-				nave.NaveAlRescate ();
+				nave = FindObjectOfType<SpawnNaveNASO>();
+				nave.NaveAlRescate();
             }
         }
     }
