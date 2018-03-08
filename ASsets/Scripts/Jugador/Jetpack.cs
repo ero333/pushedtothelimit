@@ -26,32 +26,38 @@ public class Jetpack : MonoBehaviour {
     }
     //controla cuanto si el jetpack se puede volver a usar al haber pasado el cooldown y lo desactiva al haber cosumido su tiempo de uso
     void ControlJet(){
-        if(usado >= tiepoDeUso && enOrbita == false)
-        {
-            activado = false;
-            jetAnim.OnJetpackDisabled();
+        if(activado == true){
+            if(usado >= tiepoDeUso && enOrbita == false)
+            {
+                activado = false;
+                jetAnim.OnJetpackDisabled();
+
             
-        }
-        if(enOrbita == true && tiempoCD >= Cooldown)
-        {
-            usado = 0; 
-        }
-        if(usado<= tiepoDeUso && enOrbita == false){
-            tran.Translate(transform.up * velocidad * Time.deltaTime);
-            jetAnim.OnJetpackEnabled();
-        }
-        if(enOrbita == true)
-        {
-            jetAnim.OnJetpackDisabled();
-        }
+            }
+           /* if(enOrbita == true && tiempoCD >= Cooldown)
+            {
+                usado = 0; 
+            }*/
+            if(usado < tiepoDeUso && enOrbita == false){
+                tran.Translate(transform.up * velocidad * Time.deltaTime);
+                jetAnim.OnJetpackEnabled();
+                   tiempoCD = 0;
+            }
+            if(enOrbita == true)
+            {
+                jetAnim.OnJetpackDisabled();
+            }
+       }
     }
 
     //Movimiento del Jetpack
     public void Movimiento(){
-        if(activado == false && tiempoCD >= Cooldown){
+        
+            if(tiempoCD >= Cooldown && activado == false ){
             activado = true;
-            usado = 0;
-        }
+            //usado = 0;
+            }
+        
     }
 
     void Timer(){
@@ -70,6 +76,7 @@ public class Jetpack : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision){
         enOrbita = false;
+        usado = 0;
     }
     
 }

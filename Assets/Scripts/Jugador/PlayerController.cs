@@ -153,7 +153,9 @@ public class PlayerController : MonoBehaviour {
 			//playerVelocity = (transform.up * powerJetpack);
             /*jetpackController.OnJetpackEnabled();
             */
-            jetpack.Movimiento();
+			if(jump){
+            	jetpack.Movimiento();
+			}
             if (inputX != 0)
 				transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 
