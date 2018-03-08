@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 		else if (jetpackAction) {
             //if(jetPackEnabled)
             	
-			playerVelocity = (transform.up * powerJetpack);
+			//playerVelocity = (transform.up * powerJetpack);
             /*jetpackController.OnJetpackEnabled();
             */
             jetpack.Movimiento();
