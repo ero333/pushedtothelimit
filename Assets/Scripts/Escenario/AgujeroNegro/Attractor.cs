@@ -9,42 +9,47 @@ public class Attractor : MonoBehaviour {
 
 	public Rigidbody2D rb;
 
-	void FixedUpdate ()
-	{
-		foreach (Attractor attractor in Attractors)
-		{
-			if (attractor != this)
-				Attract(attractor);
-		}
-	}
 
-	void OnEnable ()
+    void FixedUpdate()
+    {
+        foreach (Attractor attractor in Attractors)
+        {
+            if (attractor != this)
+                Attract(attractor);
+        }
+    }
+
+    private void Awake()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
 	{
 		if (Attractors == null)
 			Attractors = new List<Attractor>();
 
-
 		Attractors.Add(this);
 	}
-
-	void OnDisable ()
+    
+	void OnDestroy()
 	{
 		Attractors.Remove(this);
 	}
-
-	void Attract (Attractor objToAttract)
+  
+    void Attract (Attractor objToAttract)
 	{
 		Rigidbody2D rbToAttract = objToAttract.rb;
 
 		Vector2 direction = rb.position - rbToAttract.position;
 		float distance = direction.magnitude;
+        float forceMagnitude;
 
-		if (distance == 0f)
+        if (distance == 0f)
 			return;
 
-		float forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
-		Vector2 force = direction.normalized * forceMagnitude;
-
-		rbToAttract.AddForce(force);
+        forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
+        Vector2 force = direction.normalized * forceMagnitude;
+        rbToAttract.AddForce(force * Time.fixedDeltaTime);
 	}
 }
