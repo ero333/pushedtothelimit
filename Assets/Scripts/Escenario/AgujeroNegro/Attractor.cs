@@ -14,8 +14,9 @@ public class Attractor : MonoBehaviour {
     {
         foreach (Attractor attractor in Attractors)
         {
-            if (attractor != this)
-                Attract(attractor);
+			if ((attractor != this) && (attractor.transform.parent == null)) {
+				Attract (attractor);
+			}
         }
     }
 
@@ -47,9 +48,10 @@ public class Attractor : MonoBehaviour {
 
         if (distance == 0f)
 			return;
+			
+			forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow (distance, 2);
+			Vector2 force = direction.normalized * forceMagnitude;
+			rbToAttract.AddForce (force * Time.fixedDeltaTime);
 
-        forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
-        Vector2 force = direction.normalized * forceMagnitude;
-        rbToAttract.AddForce(force * Time.fixedDeltaTime);
 	}
 }

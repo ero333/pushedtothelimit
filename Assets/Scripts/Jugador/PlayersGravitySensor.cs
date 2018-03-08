@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayersGravitySensor : MonoBehaviour {
     public PlanetAttractor planet;
     private Rigidbody2D rbPlayer;
+	//private Attractor playerAttractor;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayersGravitySensor : MonoBehaviour {
 		if (other.CompareTag ("Planet")) {
 			gameObject.transform.parent = other.gameObject.transform;
 			planet = other.gameObject.GetComponent<PlanetAttractor> ();
+
 		}
         
     }
@@ -32,6 +34,7 @@ public class PlayersGravitySensor : MonoBehaviour {
 		if (other.CompareTag ("Planet") && other.GetComponent<PlanetAttractor> () == planet) {
 			gameObject.transform.parent = null;
 			planet = null;
+
 		}
     }
 }
