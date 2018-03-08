@@ -29,7 +29,7 @@ public class FlipPlayerController : MonoBehaviour {
 	private void FlipPlayer()
 	{
 		KeyBoardResult ();
-		GamepadResult ();
+		//GamepadResult ();
 		Vector3 rotation = transform.localEulerAngles;
 		if (inputX > 0) {
 			transform.localScale = new Vector3(1,1,1);
