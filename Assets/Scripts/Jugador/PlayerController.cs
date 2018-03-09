@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 
-		if (_inputManager.JumpWasJustPressed && coll2d.Length > 1) {
+		if (_inputManager.JumpWasJustPressed && coll2d.Length > 0) {
 			jumpForce = (transform.up * jumpPower);
 
 		}
@@ -186,9 +186,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if(_inputManager.JetpackThurstIsPressed /* && coll2d.Length > 0*/) {
 			//if(jetPackEnabled)	
-				playerVelocity = (transform.up * powerJetpack);
-				jetpackController.OnJetpackEnabled();
-
+				//playerVelocity = (transform.up * powerJetpack);
+				//jetpackController.OnJetpackEnabled();
+			jetpack.Movimiento();
+		}
 
 
 			if (inputX != 0) {
@@ -196,7 +197,7 @@ public class PlayerController : MonoBehaviour {
 			
 			}
 
-		} else if (coll2d.Length == 0 && inputX != 0) {
+		 else if (coll2d.Length == 0 && inputX != 0) {
 			transform.RotateAround (rotatePoint.position, Vector3.forward, inputX * angle);
 
 		}
