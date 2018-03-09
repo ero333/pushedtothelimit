@@ -702,9 +702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activado: 0
-  tiepoDeUso: 10
+  tiepoDeUso: 8
   velocidad: 40
-  Cooldown: 4
+  Cooldown: 2
 --- !u!114 &114909229504804100
 MonoBehaviour:
   m_ObjectHideFlags: 1

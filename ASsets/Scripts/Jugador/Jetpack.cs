@@ -39,7 +39,7 @@ public class Jetpack : MonoBehaviour {
                 usado = 0; 
             }*/
             if(usado < tiepoDeUso && enOrbita == false){
-                tran.Translate(transform.up * velocidad * Time.deltaTime);
+                tran.position = tran.position + transform.up * velocidad * Time.deltaTime;
                 jetAnim.OnJetpackEnabled();
                    tiempoCD = 0;
             }
