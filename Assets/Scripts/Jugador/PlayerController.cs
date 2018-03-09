@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour {
 
     public JetpackFireController jetpackController;
 
+	private bool isParalized;
+	public float timeParalized = 3f;
+
     Jetpack jetpack;
 
 
@@ -51,9 +54,12 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void Update()
-	{		
-		GamePadControl ();
-		KeyboardControl ();
+	{
+		if (!isParalized) 
+		{
+			GamePadControl ();
+			KeyboardControl ();
+		}
 	}
 
     void FixedUpdate()
@@ -207,4 +213,10 @@ public class PlayerController : MonoBehaviour {
         EventDispatcher.Instance.Dispatch(new PlayerDiedEvent(gameObject, this));
     }
 
+	public IEnumerator OnHitWithMoco()
+	{
+		isParalized = true;
+		yield return new WaitForSeconds (timeParalized);
+		isParalized = false;
+	}
 }
