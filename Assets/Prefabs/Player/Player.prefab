@@ -557,7 +557,10 @@ MonoBehaviour:
     m_Bits: 0
   powerJetpack: 20
   PlayerName: 0
+  jetPackEnabled: 0
+  playerVelocity: {x: 0, y: 0}
   jetpackController: {fileID: 114141454835415256}
+  timeParalized: 3
 --- !u!114 &114309363412890814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,9 +690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e5a119a8de1441bb5525ef2e570495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultWeaponPrefab: {fileID: 0}
   _defaultWeapon: {fileID: 114411300811998492, guid: 3b85430e2695b42368a2bffc6b5b5aa1,
     type: 2}
   _weaponPosition: {fileID: 4455294585601524}
+  _activeWeapon: {fileID: 114411300811998492, guid: 75a6edc7fb5a6544e8738f2e951174de,
+    type: 2}
 --- !u!114 &114851597762794354
 MonoBehaviour:
   m_ObjectHideFlags: 1

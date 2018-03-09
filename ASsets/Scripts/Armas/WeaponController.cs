@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour {
 
+    public GameObject DefaultWeaponPrefab;
+
 	public Weapon _defaultWeapon;
 	public Transform _weaponPosition;
 
-	private Weapon _activeWeapon;
+	public Weapon _activeWeapon;
 	int playername;
 	private PlayerController playcontrol;
 	private bool shoot = false;
 	private PlayerInputManager inputControl;
 
 	void Start () {
-		_activeWeapon = Instantiate(_defaultWeapon,_weaponPosition.position,Quaternion.identity);
-		_activeWeapon.transform.parent = _weaponPosition; 
-		playcontrol = GetComponent<PlayerController> ();
+        ResetToDefaultWeapon();
+        playcontrol = GetComponent<PlayerController> ();
 		inputControl = playcontrol.GetInputManager;
 
 		if (playcontrol != null)
@@ -28,6 +29,11 @@ public class WeaponController : MonoBehaviour {
 		ShootWeapon (_activeWeapon);
 	}
 
+    private void ResetToDefaultWeapon()
+    {
+        _activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+        _activeWeapon.transform.parent = _weaponPosition;
+    }
 
 	public void ShootWeapon (Weapon newWeapon){
 
@@ -60,7 +66,10 @@ public class WeaponController : MonoBehaviour {
 		if (shoot) {
 			//Debug.Log (shoot);
 			_activeWeapon.Shoot (playername);
-		}
+
+            if (_activeWeapon.IsEmpty)
+                ResetToDefaultWeapon();
+        }
 
 		shoot = false;
 	}
