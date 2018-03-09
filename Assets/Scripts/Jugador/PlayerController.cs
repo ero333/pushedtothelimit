@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     private float verticalLookRotation;
     private Transform cameraTransform;
     private Rigidbody2D rbPlayer;
-	private bool jetPackEnabled;
+	public bool jetPackEnabled;
 	private bool isGamePad = true;
     private PlayerInputManager _inputManager;
 
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	private float inputX;
 	private bool jump;
 	private bool jetpackAction;
-	private Vector2 playerVelocity;
+	public Vector2 playerVelocity;
 	private Vector2 jumpForce;
 	private Collider2D[] coll2d;
 
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
 		rbPlayer.AddForce (jumpForce);
 		jumpForce = Vector2.zero;
 		inputX = 0;
-		if (coll2d.Length != 0)
+		if (coll2d.Length != 0 && coll2d[0].gameObject.tag.Equals("Planet"))
 			playerVelocity = Vector2.zero;
 	}
     /*
