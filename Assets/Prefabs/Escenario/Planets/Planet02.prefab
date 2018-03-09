@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -100
-  RotPlayerToPlanetSpeed: 12
+  RotSpeed: 1
 --- !u!212 &212353374676313990
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: dcb568a6d6af51544b0eef9cfd8a683f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
