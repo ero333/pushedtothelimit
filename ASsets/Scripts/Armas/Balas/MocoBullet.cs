@@ -16,6 +16,6 @@ public class MocoBullet : BaseBullet
 	protected override void ApplyEffectOnPlayer(GameObject player)
 	{
 		base.ApplyEffectOnPlayer(player);
-		player.GetComponent<PlayerController>().OnHitWithMoco();
+		player.GetComponent<PlayerController>().StartCoroutine("OnHitWithMoco");
 	}
 }

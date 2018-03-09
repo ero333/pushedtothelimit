@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
     public JetpackFireController jetpackController;
 
 	private bool isParalized;
-	public float timeParalized = 3f;
+	public float timeParalized = 7f;
 
     Jetpack jetpack;
 
