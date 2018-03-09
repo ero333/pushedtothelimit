@@ -13,9 +13,14 @@ public abstract class BaseBullet : MonoBehaviour
      *  [ ] Partículas cuando se destruyen?
      */
 
-	//[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
-	//[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
-	public abstract void OnShot(int shooter);
+    //[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
+    //[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
+    protected int _playerName;
+
+	public virtual void OnShot(int shooter)
+    {
+        _playerName = shooter;
+    }
 
     protected virtual void ApplyEffectOnPlayer(GameObject player) { }
     protected virtual void ApplyEffectOnPlanet(GameObject planet) { }
@@ -35,10 +40,15 @@ public abstract class BaseBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            OnCollisionWithPlayer(collision.gameObject);
-            return;
+            int enemyName = collision.gameObject.GetComponent<PlayerController>().PlayerName;
+            if (enemyName != _playerName)
+            {
+                OnCollisionWithPlayer(collision.gameObject);
+                return;
+            }
         }
 
         if (collision.gameObject.CompareTag("Planet"))

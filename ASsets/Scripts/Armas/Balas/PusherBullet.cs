@@ -14,13 +14,11 @@ public class PusherBullet : BaseBullet
 	private Vector2 pushVelocidad;
 	private Vector2 pushFuerza;
 
-	private int playername; //Quien dispara?
 	private int enemyname; //Quien recibe el disparo?
 	private PlayerController playcontrol;
 
 	public override void OnShot(int shooter)
     {
-		playername = shooter;
 		rbBullet = GetComponent<Rigidbody2D>();
 		rbBullet.velocity = transform.right * bulletSpeed;
 		Destroy (this.gameObject, 0.05f);
@@ -31,7 +29,7 @@ public class PusherBullet : BaseBullet
 		playcontrol =  player.GetComponent<PlayerController> ();
 		enemyname = playcontrol.PlayerName; 
 		//Comparo los PlayerNames, si son iguales no aplica el efecto, sino hace el Push
-		if (playername != enemyname) {
+		if (_playerName != enemyname) {
 			rbPlayer = player.GetComponent<Rigidbody2D> ();
 			rbPlayer.AddForce (rbPlayer.transform.up * pushPower);
 			player.transform.parent = null;
