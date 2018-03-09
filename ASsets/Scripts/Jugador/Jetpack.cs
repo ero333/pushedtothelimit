@@ -72,6 +72,7 @@ public class Jetpack : MonoBehaviour {
         enOrbita = true;
         activado = false;
         tiempoCD = 0;
+        jetAnim.OnJetpackDisabled();
     }
 
     private void OnTriggerExit2D(Collider2D collision){
