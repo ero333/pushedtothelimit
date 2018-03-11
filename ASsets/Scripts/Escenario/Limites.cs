@@ -40,5 +40,10 @@ public class Limites : MonoBehaviour {
 			}
         }
 
+        if (other.gameObject.tag.Equals("Bullet"))
+        {
+            Destroy(other.gameObject);
+        }
+
     }
 }
