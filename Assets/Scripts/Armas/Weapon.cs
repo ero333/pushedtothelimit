@@ -51,8 +51,10 @@ public class Weapon : MonoBehaviour
     {
         if (GetComponentInParent<WeaponController>() != null){
             WeaponController wp = GetComponentInParent<WeaponController>();
+            Collider2D col = GetComponent<Collider2D>();
             Destroy(wp.weapon);
             wp.weapon = gameObject;
+            Destroy(col);
         }
     }
 
