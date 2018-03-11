@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private BaseBullet _bullet;
 
+    public string nombre;
+
     [SerializeField]
     private float _cooldown;
 
@@ -45,9 +47,18 @@ public class Weapon : MonoBehaviour
         Debug.Assert(_particles != null, "Weapon prefab missing Particles child.", gameObject);
     }
 
-	//[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
-	//[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
-	public void Shoot(int shooter)
+    private void Start()
+    {
+        if (GetComponentInParent<WeaponController>() != null){
+            WeaponController wp = GetComponentInParent<WeaponController>();
+            Destroy(wp.weapon);
+            wp.weapon = gameObject;
+        }
+    }
+
+    //[Berdy] Agrego el shooter para identificar el PlayerName que dispara y evitar un autodisparo (bug de disparo sobre planeta con Pusher Gun)
+    //[Berdy] Tener en cuenta que solo sirve para comparar, si la comparacion no se hace se puede permitir el autodisparo (ej. Bala orbital)
+    public void Shoot(int shooter)
 	{
         if (!CanShoot)
         {

@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 114212294943658764, guid: 5acf8d0efcd58463baa97c8dad6422dc, type: 2}
+  nombre: Moco
   _cooldown: 1
   _ammo: 5
 --- !u!198 &198769728903769550

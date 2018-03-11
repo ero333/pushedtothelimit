@@ -690,12 +690,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e5a119a8de1441bb5525ef2e570495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultWeaponPrefab: {fileID: 0}
+  DefaultWeaponPrefab: {fileID: 1066951835418118, guid: 3b85430e2695b42368a2bffc6b5b5aa1,
+    type: 2}
   _defaultWeapon: {fileID: 114411300811998492, guid: 3b85430e2695b42368a2bffc6b5b5aa1,
     type: 2}
   _weaponPosition: {fileID: 4455294585601524}
   _activeWeapon: {fileID: 114411300811998492, guid: 75a6edc7fb5a6544e8738f2e951174de,
     type: 2}
+  armas:
+  - {fileID: 1066951835418118, guid: 3b85430e2695b42368a2bffc6b5b5aa1, type: 2}
+  - {fileID: 1066951835418118, guid: 75a6edc7fb5a6544e8738f2e951174de, type: 2}
+  - {fileID: 1066951835418118, guid: 1373ea22ea5c14c878f31fb7c5a760bc, type: 2}
 --- !u!114 &114851597762794354
 MonoBehaviour:
   m_ObjectHideFlags: 1

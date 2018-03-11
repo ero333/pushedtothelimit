@@ -15,6 +15,10 @@ public class WeaponController : MonoBehaviour {
 	private bool shoot = false;
 	private PlayerInputManager inputControl;
 
+    public List<GameObject> armas;
+
+    public GameObject weapon;
+
 	void Start () {
         ResetToDefaultWeapon();
         playcontrol = GetComponent<PlayerController> ();
@@ -31,6 +35,9 @@ public class WeaponController : MonoBehaviour {
 
     private void ResetToDefaultWeapon()
     {
+        if (weapon != null){
+            Destroy(weapon);
+        }
         _activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
         _activeWeapon.transform.parent = _weaponPosition;
     }
@@ -73,4 +80,25 @@ public class WeaponController : MonoBehaviour {
 
 		shoot = false;
 	}
+
+
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (hit.gameObject.tag.Equals("Weapon"))
+        {
+            Destroy(weapon);
+            string bullet = hit.GetComponent<Weapon>().nombre;
+            if (bullet == "Moco"){
+                _activeWeapon = Instantiate(armas[2], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                _activeWeapon.GetComponent<BoxCollider2D>().enabled = false;
+                _activeWeapon.transform.parent = _weaponPosition;
+            }
+            if (bullet =="Energy"){
+                _activeWeapon = Instantiate(armas[1], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                _activeWeapon.GetComponent<BoxCollider2D>().enabled = false;
+                _activeWeapon.transform.parent = _weaponPosition;
+            }
+            Destroy(hit.gameObject);
+        }  
+    }
 }
