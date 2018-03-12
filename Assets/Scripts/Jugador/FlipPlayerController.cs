@@ -8,6 +8,7 @@ public class FlipPlayerController : MonoBehaviour {
 	private PlayerController controller;
 	private int PlayerName;
 	private float inputX;
+    public bool flip = false;
 
 	void Start () {
 		controller = GetComponent<PlayerController> ();
@@ -40,7 +41,7 @@ public class FlipPlayerController : MonoBehaviour {
 				Transform posicion = posicionesArma [i];	
 				posicion.localRotation = Quaternion.Euler (0, 0, 0);
 			}
-
+            flip = false;
 			//weaponAnchor.localRotation = Quaternion.Euler (0, 0, 0);
 
 		} else if(inputX < 0){
@@ -52,7 +53,7 @@ public class FlipPlayerController : MonoBehaviour {
 				Transform posicion = posicionesArma [i];	
 				posicion.localRotation = Quaternion.Euler (0, 180, 0);
 			}
-
+            flip = true;
 
 
 		}

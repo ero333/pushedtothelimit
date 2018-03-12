@@ -15,14 +15,18 @@ public class WeaponController : MonoBehaviour {
 	private PlayerController playcontrol;
 	private bool shoot = false;
 	private PlayerInputManager inputControl;
-
+    FlipPlayerController flipController;
     public List<GameObject> armas;
 
     public GameObject weapon;
 
     public int armasTomadas;
 
-	void Start () {
+    private void Awake(){
+        flipController = GetComponent<FlipPlayerController>();
+    }
+
+    void Start () {
         ResetToDefaultWeapon();
         playcontrol = GetComponent<PlayerController> ();
 		inputControl = playcontrol.GetInputManager;
@@ -41,7 +45,16 @@ public class WeaponController : MonoBehaviour {
         if (weapon != null){
             Destroy(weapon);
         }
-        _activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+        if (flipController.flip == false)
+        {
+            _activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+        }
+        if (flipController.flip == true)
+        {
+            _activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, _weaponPosition.rotation).GetComponent<Weapon>();
+            _activeWeapon.transform.position = _activeWeapon.transform.right * -1;
+        }
+        //_activeWeapon = Instantiate(DefaultWeaponPrefab, _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
         _activeWeapon.transform.parent = _weaponPosition;
     }
 
@@ -92,12 +105,29 @@ public class WeaponController : MonoBehaviour {
             Destroy(weapon);
             string bullet = hit.GetComponent<Weapon>().nombre;
             if (bullet == "Moco"){
-                _activeWeapon = Instantiate(armas[2], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                if (flipController.flip == false)
+                {
+                    _activeWeapon = Instantiate(armas[2], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                }
+                if (flipController.flip == true)
+                {
+                    _activeWeapon = Instantiate(armas[2], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                    _activeWeapon.transform.position = _activeWeapon.transform.right * -1;
+
+                }
                 _activeWeapon.GetComponent<BoxCollider2D>().enabled = false;
                 _activeWeapon.transform.parent = _weaponPosition;
             }
             if (bullet =="Energy"){
-                _activeWeapon = Instantiate(armas[1], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                if (flipController.flip == false)
+                {
+                    _activeWeapon = Instantiate(armas[1], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                }
+                if(flipController.flip == true)
+                {
+                    _activeWeapon = Instantiate(armas[1], _weaponPosition.position, Quaternion.identity).GetComponent<Weapon>();
+                    _activeWeapon.transform.position = _activeWeapon.transform.right * -1;
+                }
                 _activeWeapon.GetComponent<BoxCollider2D>().enabled = false;
                 _activeWeapon.transform.parent = _weaponPosition;
             }
