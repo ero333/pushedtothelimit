@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
@@ -15,7 +16,9 @@ public class GameManager : MonoBehaviour {
     public string ganador;
     public int jugadoresVivos;
     public int jugadoreEnPartida;
-
+    int partidasJugadas;
+    float inicioPartida;
+    float tiempoPartida;
 
     void Awake(){
 		if(instance == null){
@@ -55,8 +58,17 @@ public class GameManager : MonoBehaviour {
 				SpawnNaveNASO nave;
 				nave = FindObjectOfType<SpawnNaveNASO>();
 				nave.NaveAlRescate();
+                partidasJugadas += 1;
+                tiempoPartida = Time.time;
+
+                Analytics.CustomEvent("PartidaInicio", new Dictionary<string, object>{{ "PartidasJugadas", partidasJugadas }});
+
+                Analytics.CustomEvent("PartidaFin", new Dictionary<string, object>{{ "Ganador", ganador },});
+
+                Analytics.CustomEvent("PartidaFin", new Dictionary<string, object> {{ "TiempoPartida", tiempoPartida }});
             }
         }
+        
     }
 
 }

@@ -30,7 +30,7 @@ public class PlayerInputManager
         //TODO: ¿Es esta la forma en la que queremos implementar la asignación de controles?
         _actions = new PlayerInputActions();
 
-        Debug.Assert(InputManager.Devices.Count >= playerNumber, "There are not enough controllers connected!");
+       // Debug.Assert(InputManager.Devices.Count >= playerNumber, "There are not enough controllers connected!");
 
         if (InputManager.Devices.Count >= playerNumber && InputManager.Devices[playerNumber - 1].IsAttached)
         {

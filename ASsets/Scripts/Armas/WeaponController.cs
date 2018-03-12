@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class WeaponController : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class WeaponController : MonoBehaviour {
     public List<GameObject> armas;
 
     public GameObject weapon;
+
+    public int armasTomadas;
 
 	void Start () {
         ResetToDefaultWeapon();
@@ -99,6 +102,12 @@ public class WeaponController : MonoBehaviour {
                 _activeWeapon.transform.parent = _weaponPosition;
             }
             Destroy(hit.gameObject);
+            armasTomadas += 1;
         }  
+    }
+
+    private void OnDestroy()
+    {
+        Analytics.CustomEvent("Morir", new Dictionary<string, object> { { "ArmasTomadas", armasTomadas } });
     }
 }

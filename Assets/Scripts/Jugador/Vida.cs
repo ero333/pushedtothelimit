@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Vida : MonoBehaviour {
     public int vida;
@@ -21,5 +22,10 @@ public class Vida : MonoBehaviour {
 
     public void Healer(int aCurar){
         vida += aCurar;
+    }
+
+    private void OnDestroy()
+    {
+        Analytics.CustomEvent("Morir", new Dictionary<string, object> { { "Vida", vida } });
     }
 }

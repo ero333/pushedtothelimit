@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Jetpack : MonoBehaviour {
     public bool activado;
@@ -79,5 +80,9 @@ public class Jetpack : MonoBehaviour {
         enOrbita = false;
         usado = 0;
     }
-    
+
+    private void OnDestroy()
+    {
+        Analytics.CustomEvent("Morir", new Dictionary<string, object> { { "EstadoJetpack", activado } });
+    }
 }
