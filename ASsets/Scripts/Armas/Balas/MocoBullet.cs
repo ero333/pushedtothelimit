@@ -6,8 +6,17 @@ public class MocoBullet : BaseBullet
 {
 	[SerializeField]
 	private float _speed;
+    OrbitadorBala ob;
+    public float tiempoActivarOrbiador;
 
-	public override void OnShot(int shooter)
+    private void Awake()
+    {
+        ob = GetComponent<OrbitadorBala>();
+        ob.enabled = false;
+        Invoke("ActivadoOrbitador", tiempoActivarOrbiador);
+    }
+
+    public override void OnShot(int shooter)
 	{
 		base.OnShot(shooter);
 		GetComponent<Rigidbody2D>().velocity = transform.right * _speed;
@@ -18,4 +27,9 @@ public class MocoBullet : BaseBullet
 		base.ApplyEffectOnPlayer(player);
 		player.GetComponent<PlayerController>().StartCoroutine("OnHitWithMoco");
 	}
+
+    void ActivadoOrbitador()
+    {
+        ob.enabled = true;
+    }
 }

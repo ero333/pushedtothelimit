@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  tiempoActivarOrbiador: 0.5
 --- !u!114 &114735971873913278
 MonoBehaviour:
   m_ObjectHideFlags: 1

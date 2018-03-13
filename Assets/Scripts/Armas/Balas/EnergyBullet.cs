@@ -10,7 +10,15 @@ public class EnergyBullet : BaseBullet
 
     [SerializeField]
     private int _damage;
+    OrbitadorBala ob;
+    public float tiempoActivarOrbiador;
 
+    private void Awake()
+    {
+        ob = GetComponent<OrbitadorBala>();
+        ob.enabled = false;
+        Invoke("ActivadoOrbitador", tiempoActivarOrbiador);
+    }
     public override void OnShot(int shooter)
     {
         base.OnShot(shooter);
@@ -21,5 +29,10 @@ public class EnergyBullet : BaseBullet
     {
         base.ApplyEffectOnPlayer(player);
         player.GetComponent<Vida>().Damage(_damage);
+    }
+
+    void ActivadoOrbitador()
+    {
+        ob.enabled = true;
     }
 }

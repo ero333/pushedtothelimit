@@ -22,5 +22,15 @@ public class OrbitadorBala : MonoBehaviour {
         if (hit.CompareTag("Planet")){
             planeta = hit.GetComponent<PlanetAttractor>();
         }
+
+        if (hit.GetComponent<Limites>())
+        {
+            Destroy(hit.gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        planeta = null;
     }
 }
