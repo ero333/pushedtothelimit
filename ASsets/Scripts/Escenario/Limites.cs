@@ -5,7 +5,7 @@ using UnityEngine;
 public class Limites : MonoBehaviour {
     public Vector2[] sizeBoxCollider;
     public Vector2[] positionBoxCollider;
-    public float powerForce = 200;
+    public float powerForce;
 
     void Start () {
         BoxCollider2D[] colls = GetComponents<BoxCollider2D>();
@@ -32,7 +32,7 @@ public class Limites : MonoBehaviour {
             PlayerController pControl = other.gameObject.GetComponent<PlayerController>();
 			if (pControl != null) {
 				pControl.jetPackEnabled = false;
-				pControl.playerVelocity = -1 * other.transform.position * powerForce;
+				pControl.playerVelocity = -1 * other.transform.position * powerForce * Time.deltaTime;
 			}
 
 			if (jet != null) {

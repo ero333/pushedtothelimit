@@ -898,7 +898,7 @@ MonoBehaviour:
   - {x: 300, y: 0}
   - {x: -300, y: 0}
   - {x: 0, y: 300}
-  powerForce: 200
+  powerForce: 5
 --- !u!61 &889309140
 BoxCollider2D:
   m_ObjectHideFlags: 0
