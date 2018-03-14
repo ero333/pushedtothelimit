@@ -31,9 +31,9 @@ public class PusherBullet : BaseBullet
         //Comparo los PlayerNames, si son iguales no aplica el efecto, sino hace el Push
         if (_playerName != enemyname) {
             rbPlayer = player.GetComponent<Rigidbody2D>();
-            //rbPlayer.AddForce (rbPlayer.transform.up * pushPower);
-            Vector2 direccion = rbPlayer.transform.position - gameObject.transform.position;
-            rbPlayer.AddForce(direccion * pushPower);
+            rbPlayer.AddForce (rbPlayer.transform.right * pushPower);
+            //Vector2 direccion = rbPlayer.transform.position - gameObject.transform.position;
+            //rbPlayer.AddForce(direccion * pushPower);
 			player.transform.parent = null;
 		}
 	
