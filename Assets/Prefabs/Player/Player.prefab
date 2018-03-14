@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 100
+  barraHp: {fileID: 114047293537057432}
 --- !u!114 &114415143902438252
 MonoBehaviour:
   m_ObjectHideFlags: 1

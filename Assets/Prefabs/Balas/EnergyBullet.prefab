@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2d6b95a5e0b6446a76f8beb7b8ba7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 50
+  _speed: 0
   _damage: 30
   tiempoActivarOrbiador: 0.5
 --- !u!114 &114735971873913278
