@@ -597,6 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 100
   barraHp: {fileID: 114047293537057432}
+  playDeath: {fileID: 21300000, guid: 5548796b47cbfa04f9bd2999225f2256, type: 3}
 --- !u!114 &114415143902438252
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Vida : MonoBehaviour {
     public int vida;
 	public Slider barraHp;
+	public Sprite playDeath;
 
     private void Update(){
         ControlVida();
@@ -15,7 +16,9 @@ public class Vida : MonoBehaviour {
     void ControlVida(){
 		barraHp.value = vida;
         if(vida <= 0){
-            Destroy(gameObject);
+			gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+			if ((gameObject.transform.position.x < 12) && (gameObject.transform.position.x > -12) && (gameObject.transform.position.y < 12) && (gameObject.transform.position.y > -12))
+				Destroy(gameObject);
         }
     }
 
