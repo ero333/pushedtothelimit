@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponAnchor: {fileID: 4455294585601524}
+  flip: 0
 --- !u!114 &114586603604264846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -701,6 +702,8 @@ MonoBehaviour:
   - {fileID: 1066951835418118, guid: 3b85430e2695b42368a2bffc6b5b5aa1, type: 2}
   - {fileID: 1066951835418118, guid: 75a6edc7fb5a6544e8738f2e951174de, type: 2}
   - {fileID: 1066951835418118, guid: 1373ea22ea5c14c878f31fb7c5a760bc, type: 2}
+  weapon: {fileID: 0}
+  armasTomadas: 0
 --- !u!114 &114851597762794354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -714,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activado: 0
   tiepoDeUso: 8
-  velocidad: 40
+  velocidad: 80
   Cooldown: 2
 --- !u!114 &114909229504804100
 MonoBehaviour:

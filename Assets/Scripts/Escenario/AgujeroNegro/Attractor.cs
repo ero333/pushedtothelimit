@@ -49,9 +49,9 @@ public class Attractor : MonoBehaviour {
         if (distance == 0f)
 			return;
 			
-			forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow (distance, 2);
+		forceMagnitude = G;//G * (rb.mass * rbToAttract.mass) / Mathf.Pow (distance, 2);
 			Vector2 force = direction.normalized * forceMagnitude;
-			rbToAttract.AddForce (force * Time.fixedDeltaTime);
+			rbToAttract.AddForce (force);
 
 	}
 }
